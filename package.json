@@ -1,12 +1,12 @@
 {
   "name": "gulp-qndn",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Qiniu DN gulp tasks.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "Minwe/gulp-qndn"
+  "repository": "Minwe/gulp-qndn",
   "keywords": [
     "gulpplugin",
     "qiniu",
@@ -23,7 +23,7 @@
     "url": "https://github.com/Minwe/gulp-qndn/issues"
   },
   "homepage": "https://github.com/Minwe/gulp-qndn",
-  "devDependencies": {
+  "dependencies": {
     "gulp-util": "^3.0.5",
     "object-assign": "^3.0.0",
     "qn": "^1.0.1",
