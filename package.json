@@ -25,8 +25,10 @@
   "homepage": "https://github.com/Minwe/gulp-qndn",
   "dependencies": {
     "gulp-util": "^3.0.5",
+    "map-stream": "0.0.5",
     "object-assign": "^3.0.0",
-    "qn": "^1.0.1",
-    "through2": "^0.6.5"
+    "qn": "^1.0.1"
+  },
+  "devDependencies": {
   }
 }

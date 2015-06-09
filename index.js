@@ -5,7 +5,7 @@ var util = require('gulp-util');
 var log = util.log;
 var colors = util.colors;
 var PluginError = util.PluginError;
-var through = require('through2');
+var map = require('map-stream');
 var QN = require('qn');
 var assign = require('object-assign');
 var getEtag = require('./lib/qnetag');
@@ -25,31 +25,20 @@ exports.upload = function(options) {
     throw new PluginError(PLUGIN_NAME, 'Missing Qiniu dn configs!');
   }
 
-  return through.obj(function(file, encoding, callback) {
+
+  // TODO: 根据文件 hash 判断文件是否改变，只上传改变的文件
+  // http://kb.qiniu.com/53tubk96
+  // https://github.com/demohi/gulp-qn/blob/master/lib/qn.js#L40
+
+  // http://artandlogic.com/2014/05/a-simple-gulp-plugin/
+  return map(function(file, callback) {
     if (file.isNull()) {
       callback(null, file);
       return;
     }
 
-    // TODO: 根据文件 hash 判断文件是否改变，只上传改变的文件
-    // http://kb.qiniu.com/53tubk96
-    // https://github.com/demohi/gulp-qn/blob/master/lib/qn.js#L40
-
     var fileKey = path.join(options.prefix, options.flatten ?
-        path.basename(file.path) : file.relative);
-
-    /*
-     getEtag(file.contents, function(hash) {
-      console.log(hash);
-     });
-     client.stat(fileKey, function (err, stat) {
-       console.log(stat);
-       // fsize: 8,
-       // hash: 'FvnDEnGu6pjzxxxc5d6IlNMrbDnH',
-       // mimeType: 'text/plain',
-       // putTime: 13783134309588504
-     });
-     */
+      path.basename(file.path) : file.relative);
 
     // Both stream and buffer are supported
     client.upload(file.contents, {key: fileKey}, function(err, result) {
@@ -58,8 +47,9 @@ exports.upload = function(options) {
       } else {
         log('Uploaded:', colors.green(result.url));
       }
-      callback(null, file);
     });
+
+    callback(null, file);
   });
 };
 
