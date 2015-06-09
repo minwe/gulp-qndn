@@ -1,0 +1,31 @@
+{
+  "env": {
+    "node": true
+  },
+  "rules": {
+    // "comma-spacing": 1, // default [2, {"before": false, "after": true}]
+    // "camelcase": 1,
+    // "curly": 2, // default is [2, "all"]
+    "key-spacing": 0,
+    // 2 spaces indentation
+    "indent": [2, 2, {"indentSwitchCase": true}],
+    "max-len": [1, 80],
+    "new-cap": 1,
+    "no-underscore-dangle": 0,
+    "no-unused-expressions": 0,
+    "no-unused-vars": [1, { "vars": "all", "args": "none" }],
+    "no-var": 0,
+    "no-undef": 1,
+    "no-caller": 1,
+    "quotes": [1, "single", "avoid-escape"],
+    "strict": 2,
+
+    // other style
+    "space-before-blocks": 2,
+    "brace-style": 2,
+    "space-after-keywords": 2,
+    "comma-dangle": [2, "never"],
+    "newline-after-var": [1, "always"],
+    "one-var": [2, "never"]
+  }
+}

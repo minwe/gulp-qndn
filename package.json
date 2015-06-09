@@ -1,0 +1,35 @@
+{
+  "name": "gulp-qndn",
+  "version": "0.0.1",
+  "description": "Qiniu DN gulp tasks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Minwe/gulp-qndn"
+  },
+  "keywords": [
+    "gulpplugin",
+    "qiniu",
+    "qn",
+    "CDN"
+  ],
+  "author": {
+    "name": "Minwe",
+    "email": "hegfirose@gmail.com",
+    "url": "csspod.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Minwe/gulp-qndn/issues"
+  },
+  "homepage": "https://github.com/Minwe/gulp-qndn",
+  "devDependencies": {
+    "gulp-util": "^3.0.5",
+    "object-assign": "^3.0.0",
+    "qn": "^1.0.1",
+    "through2": "^0.6.5"
+  }
+}
