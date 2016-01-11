@@ -8,6 +8,7 @@ var PluginError = util.PluginError;
 var map = require('map-stream');
 var QN = require('qn');
 var assign = require('object-assign');
+var slash = require('slash');
 var getEtag = require('./lib/qnetag');
 
 var PLUGIN_NAME = 'gulp-qndn';
@@ -41,7 +42,7 @@ exports.upload = function(options) {
       path.basename(file.path) : file.relative);
 
     // Both stream and buffer are supported
-    client.upload(file.contents, {key: fileKey}, function(err, result) {
+    client.upload(file.contents, {key: slash(fileKey)}, function(err, result) {
       if (err) {
         log('Error', colors.red(new PluginError(PLUGIN_NAME, err).message));
       } else {

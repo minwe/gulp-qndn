@@ -38,7 +38,7 @@ gulp.task('default', function () {
 
 #### `options.prefix`
 
-`string` fiel path prefix, default `''`.
+`string` file path prefix, default `''`.
 
 #### `options.flatten`
 
